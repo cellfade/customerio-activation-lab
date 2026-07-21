@@ -20,12 +20,20 @@ Primary references:
 - [Pluma Modal](https://pluma.customer.io/components/modal)
 - [Pluma Drawer Manager](https://pluma.customer.io/components/drawer-manager)
 - [Pluma tokens](https://pluma.customer.io/foundations/tokens/all-tokens)
+- [Pluma MCP server](https://pluma.customer.io/overview/mcp-server)
+- [Customer.io logo guidance](https://brand.customer.io/docs/logo)
+
+## Pluma fidelity update
+
+The public prototype now uses the official Customer.io mark and exact public Pluma token values for product surfaces, navigation, text, borders, elevation, focus, type scale, and motion. Inspectable `data-pluma-component` seams identify the intended `NavItem`, `Button`, `OptionCardGroup`, managed `Modal`, and managed `Drawer` replacements.
+
+The Pluma packages are private: the published MCP setup requires a GitHub token and authenticated `.npmrc`, and anonymous registry requests return 404. For that reason this artifact does not fake package imports. `src/pluma/INTEGRATION.md` documents the authenticated production swap and dry-run-first CLI workflow.
 
 ## Production replacement map
 
 | Prototype seam | Customer.io production mapping |
 |---|---|
-| `src/styles/tokens.css` | Replace aliases with `@customerio/pluma-tokens` theme accessors. |
+| `src/styles/tokens.css` | Public values mirror Pluma 0.34.3; replace aliases with private `themeVars` accessors. |
 | Sidebar buttons | `NavItem` from `@customerio/pluma-components/react`. |
 | `SetupDrawer` | Managed `Drawer` through Pluma `useDrawer` / `useDrawers`. |
 | `PlanModal` | Managed `Modal`, `ModalBody`, and `ModalFooter`. |
@@ -79,4 +87,3 @@ Recommended experiment measures:
 4. Add the trial-offer eligibility endpoint and analytics only.
 5. Ship the coachmark to a small eligible cohort; validate comprehension before enabling plan selection.
 6. Add server-authoritative plan selection with idempotency, error recovery, and billing/legal review.
-

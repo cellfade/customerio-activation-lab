@@ -49,7 +49,7 @@ const navGroups: { label: string; items: { icon: Icon; label: string; active?: b
 ]
 
 function Logo() {
-  return <div className="logo" aria-label="Customer.io"><span className="logo-mark" aria-hidden="true"><i /><i /><i /></span><span>customer.io</span></div>
+  return <div className="logo" aria-label="Customer.io"><img className="customerio-mark" src="/customerio-mark.png" alt="" /><span>customer.io</span></div>
 }
 
 function Sidebar({ onUpgrade, selectedPlan }: { onUpgrade: () => void; selectedPlan?: PlanId }) {
@@ -63,12 +63,12 @@ function Sidebar({ onUpgrade, selectedPlan }: { onUpgrade: () => void; selectedP
       <nav aria-label="Primary navigation">
         {navGroups.map((group) => <div className="nav-group" key={group.label || 'primary'}>
           {group.label && <div className="nav-label">{group.label}</div>}
-          {group.items.map(({ icon: ItemIcon, label, active }) => <button className={`nav-item ${active ? 'active' : ''}`} data-test-nav-item={label.toLowerCase().replaceAll(' ', '-')} key={label} type="button"><ItemIcon size={18} weight={active ? 'fill' : 'regular'} /><span>{label}</span><em className="nav-hover-label">{label}</em></button>)}
+          {group.items.map(({ icon: ItemIcon, label, active }) => <button className={`nav-item ${active ? 'active' : ''}`} data-pluma-component="NavItem" data-test-nav-item={label.toLowerCase().replaceAll(' ', '-')} key={label} type="button"><ItemIcon size={18} weight={active ? 'fill' : 'regular'} /><span>{label}</span><em className="nav-hover-label">{label}</em></button>)}
         </div>)}
       </nav>
       <div className="sidebar-bottom">
         <div className={`upgrade-beam ${selectedPlan ? 'selected-plan' : ''}`}>
-          <button className="upgrade-button" data-test-upgrade-trigger onClick={onUpgrade} type="button" aria-describedby="upgrade-trigger-hint"><ArrowUp size={16} weight="bold" />{selectedPlan ? 'Plan selected' : 'Upgrade'}</button>
+          <button className="upgrade-button" data-pluma-component="Button" data-pluma-variant="primary" data-test-upgrade-trigger onClick={onUpgrade} type="button" aria-describedby="upgrade-trigger-hint"><ArrowUp size={16} weight="bold" />{selectedPlan ? 'Plan selected' : 'Upgrade'}</button>
         </div>
         <span id="upgrade-trigger-hint">{selectedPlan ? '30-day trial unlocked' : '14 days left in trial'}</span>
         <div className="upgrade-tooltip" role="tooltip">See plans and unlock 16 more trial days</div>
@@ -107,7 +107,7 @@ function SetupDrawer({ type, onClose, onComplete }: { type: 'domain' | 'profile'
   const dialogRef = useManagedDialog(onClose)
   const isDomain = type === 'domain'
   return <div className="overlay overlay-right" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
-    <aside ref={dialogRef} className="drawer" role="dialog" aria-modal="true" aria-labelledby="setup-drawer-title">
+    <aside ref={dialogRef} className="drawer" data-pluma-component="ManagedDrawer" role="dialog" aria-modal="true" aria-labelledby="setup-drawer-title">
       <div className="dialog-header"><div><span>{isDomain ? 'Sending setup' : 'Audience setup'}</span><h2 id="setup-drawer-title">{isDomain ? 'Verify your domain' : 'Add a test profile'}</h2></div><button className="icon-button" onClick={onClose} type="button" aria-label="Close"><X size={20} /></button></div>
       <p className="dialog-intro">{isDomain ? 'Use the domain your customers recognize. Customer.io will provide the DNS records after this step.' : 'Add yourself first. This keeps the first send low risk and makes the result easy to inspect.'}</p>
       {isDomain ? <><label htmlFor="domain">Sending domain</label><div className="input-row"><input id="domain" defaultValue="agmdesign.co" /><span className="valid-icon"><Check size={16} weight="bold" /></span></div><div className="info-panel"><Code size={20} /><div><strong>What happens next</strong><p>You’ll add three DNS records with your provider. Verification can run while you continue setup.</p></div></div></> : <><label htmlFor="email">Email address</label><input id="email" defaultValue="andrew@agmdesign.co" /><label htmlFor="firstName">First name</label><input id="firstName" defaultValue="Andrew" /><div className="info-panel"><Users size={20} /><div><strong>Only this profile will receive the test</strong><p>You can review the audience again before sending.</p></div></div></>}
@@ -190,10 +190,10 @@ function PlanModal({ selectedPlan, state, message, onClose, onSelect, onSubmit }
   const dialogRef = useManagedDialog(onClose)
   const isSubmitting = state === 'submitting'
   return <div className="overlay overlay-center" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
-    <section ref={dialogRef} className="plan-modal modal-card" role="dialog" aria-modal="true" aria-labelledby="plan-modal-title" data-test-plan-modal>
+    <section ref={dialogRef} className="plan-modal modal-card" data-pluma-component="ManagedModal" role="dialog" aria-modal="true" aria-labelledby="plan-modal-title" data-test-plan-modal>
       <div className="dialog-header"><div><span>30-day trial offer</span><h2 id="plan-modal-title">Choose a plan before your timer expires</h2></div><button className="icon-button" onClick={onClose} type="button" aria-label="Close plan comparison"><X size={20} /></button></div>
       <p className="plan-intro">Your paid subscription starts after Day 30. You can change or cancel before billing begins.</p>
-      <div className="plan-options" role="radiogroup" aria-label="Plan options">{Object.values(plans).map((plan) => <button className={`plan-option ${selectedPlan === plan.id ? 'selected' : ''}`} key={plan.id} onClick={() => onSelect(plan.id)} role="radio" aria-checked={selectedPlan === plan.id} type="button"><div><span>{plan.name}</span><strong>{plan.price}<small>/month</small></strong></div><ul>{plan.features.map((feature) => <li key={feature}><Check size={13} weight="bold" />{feature}</li>)}</ul><em>{plan.qualifier}</em></button>)}</div>
+      <div className="plan-options" data-pluma-component="OptionCardGroup" role="radiogroup" aria-label="Plan options">{Object.values(plans).map((plan) => <button className={`plan-option ${selectedPlan === plan.id ? 'selected' : ''}`} data-pluma-component="OptionCard" key={plan.id} onClick={() => onSelect(plan.id)} role="radio" aria-checked={selectedPlan === plan.id} type="button"><div><span>{plan.name}</span><strong>{plan.price}<small>/month</small></strong></div><ul>{plan.features.map((feature) => <li key={feature}><Check size={13} weight="bold" />{feature}</li>)}</ul><em>{plan.qualifier}</em></button>)}</div>
       <div className="trial-extension-row"><Clock size={21} weight="fill" /><div><strong>Your trial changes from 14 to 30 days</strong><span>Billing begins after the extended trial. No charge today.</span></div></div>
       {state === 'error' && <div className="error-banner" role="alert"><strong>We couldn’t save your plan.</strong><span>{message} Your trial is unchanged; try again.</span></div>}
       <div className="dialog-footer"><button className="secondary-button" onClick={onClose} type="button" disabled={isSubmitting}>Back</button><button className="primary-button" onClick={onSubmit} type="button" disabled={isSubmitting}>{isSubmitting ? <><span className="button-spinner" />Saving plan…</> : <>Choose {plans[selectedPlan].name} and extend trial <ArrowRight size={16} /></>}</button></div>

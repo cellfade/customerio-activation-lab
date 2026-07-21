@@ -22,12 +22,13 @@ button:focus-visible, input:focus-visible { outline: none; box-shadow: var(--cio
 }
 .workspace-switcher:hover { background: rgba(255,255,255,.62); }
 .workspace-switcher .logo span:last-child { display: none; }
+.customerio-mark { display: block; width: 24px; height: 24px; object-fit: contain; }
 .workspace-name { display: flex; flex-direction: column; min-width: 0; font-size: 12px; }
 .workspace-name small { color: #707977; }
 .workspace-name strong { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 
 .nav-item { position: relative; cursor: pointer; transition: color var(--cio-motion-fast), background var(--cio-motion-fast), transform var(--cio-motion-fast); }
-.nav-item:hover { background: #e8ebe9; color: var(--ink); transform: translateX(2px); }
+.nav-item:hover { background: var(--pluma-color-navigation-background-hover); color: var(--ink); transform: translateX(2px); }
 .nav-item.active:hover { background: #fff; }
 .nav-item:active { transform: translateX(1px) scale(.99); }
 .nav-hover-label { display: none; }
@@ -36,7 +37,7 @@ button:focus-visible, input:focus-visible { outline: none; box-shadow: var(--cio
 .upgrade-button { transition: background var(--cio-motion-fast), transform var(--cio-motion-fast), box-shadow var(--cio-motion-fast); }
 .upgrade-button:hover { background: #a1ffa4; box-shadow: 0 4px 16px rgba(11,53,59,.15); transform: translateY(-1px); }
 .upgrade-button:active { transform: translateY(0); }
-.upgrade-tooltip { position: absolute; left: calc(100% + 12px); bottom: 25px; z-index: 20; width: 214px; padding: 9px 11px; border-radius: var(--cio-radius-3); background: var(--cio-surface-invert); color: #fff; box-shadow: 0 8px 24px rgba(8,39,43,.18); font-size: 12px; line-height: 1.35; text-align: left; opacity: 0; transform: translateX(-5px); pointer-events: none; transition: opacity var(--cio-motion-fast), transform var(--cio-motion-fast); }
+.upgrade-tooltip { position: absolute; left: calc(100% + 12px); bottom: 25px; z-index: 20; width: 214px; padding: 9px 11px; border-radius: var(--pluma-radius-6); background: var(--pluma-color-surface-invert); color: #fff; box-shadow: var(--pluma-depth-surface-2); font-size: var(--pluma-font-size-xxs); line-height: 1.35; text-align: left; opacity: 0; transform: translateX(-5px); pointer-events: none; transition: opacity var(--pluma-motion-duration-fast-02), transform var(--pluma-motion-duration-fast-02) var(--pluma-motion-easing-standard-productive); }
 .sidebar-bottom:has(.upgrade-button:hover) .upgrade-tooltip, .sidebar-bottom:has(.upgrade-button:focus-visible) .upgrade-tooltip { opacity: 1; transform: translateX(0); }
 
 .eyebrow { display: block; margin-bottom: 5px; color: #1e7b87; font-size: 11px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
