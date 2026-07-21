@@ -1,0 +1,38 @@
+:root {
+  /* Pluma-aligned values. In production these map to @customerio/pluma-tokens. */
+  --cio-palette-brand-forest: #0b353b;
+  --cio-palette-brand-forest-dark: #08272b;
+  --cio-palette-brand-forest-light: #0e464d;
+  --cio-palette-green-verdant-300: #78fc7c;
+  --cio-palette-green-verdant-025: #e0ffe1;
+  --cio-palette-grey-015: #fafafa;
+  --cio-palette-grey-025: #f5f5f5;
+  --cio-palette-grey-100: #e0e0e0;
+  --cio-palette-grey-500: #666666;
+  --cio-palette-grey-800: #212121;
+  --cio-surface: #ffffff;
+  --cio-surface-subtle: #f8f9f8;
+  --cio-surface-invert: #0b353b;
+  --cio-surface-invert-hover: #0e464d;
+  --cio-border: #e0e0e0;
+  --cio-border-strong: #bcbcbc;
+  --cio-text: #212121;
+  --cio-text-subtle: #666666;
+  --cio-text-brand: #0b353b;
+  --cio-radius-2: 4px;
+  --cio-radius-3: 6px;
+  --cio-radius-4: 8px;
+  --cio-radius-5: 10px;
+  --cio-space-1: 4px;
+  --cio-space-2: 8px;
+  --cio-space-3: 12px;
+  --cio-space-4: 16px;
+  --cio-space-5: 20px;
+  --cio-space-6: 24px;
+  --cio-space-8: 32px;
+  --cio-shadow-overlay: 0 24px 68px rgba(8, 39, 43, 0.22);
+  --cio-focus: 0 0 0 3px rgba(30, 123, 135, 0.25);
+  --cio-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --cio-motion-fast: 125ms;
+  --cio-motion-medium: 220ms;
+}
