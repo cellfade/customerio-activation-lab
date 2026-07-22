@@ -85,7 +85,7 @@ button:focus-visible, input:focus-visible { outline: none; box-shadow: var(--cio
 .experiment-card dt { color: var(--muted); }
 .experiment-card dd { margin: 0; font-weight: 700; text-align: right; }
 
-.prototype-switcher { position: fixed; z-index: 30; right: 12px; bottom: 12px; left: 232px; min-height: 52px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; padding: 7px 8px 7px 14px; border: 1px solid #cfd7d4; border-radius: var(--cio-radius-4); background: rgba(255,255,255,.96); box-shadow: 0 10px 30px rgba(8,39,43,.14); backdrop-filter: blur(12px); }
+.prototype-switcher { position: fixed; z-index: 30; right: 12px; bottom: 12px; width: min(860px, calc(100vw - 244px)); min-height: 52px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; padding: 7px 8px 7px 14px; border: 1px solid #cfd7d4; border-radius: var(--cio-radius-4); background: rgba(255,255,255,.96); box-shadow: 0 10px 30px rgba(8,39,43,.14); backdrop-filter: blur(12px); }
 .prototype-switcher > div:first-child span, .prototype-switcher > div:first-child strong { display: block; white-space: nowrap; }
 .prototype-switcher > div:first-child span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
 .prototype-switcher > div:first-child strong { margin-top: 2px; font-size: 12px; }
@@ -112,7 +112,7 @@ button:focus-visible, input:focus-visible { outline: none; box-shadow: var(--cio
   .workspace-switcher .workspace-name, .workspace-switcher > svg { display: none; }
   .nav-item:hover { transform: none; }
   .nav-item:hover .nav-hover-label, .nav-item:focus-visible .nav-hover-label { display: block; position: absolute; z-index: 20; left: calc(100% + 9px); padding: 6px 8px; border-radius: 4px; background: #0b353b; color: #fff; font-size: 11px; font-style: normal; white-space: nowrap; }
-  .prototype-switcher { left: 82px; grid-template-columns: 1fr auto; }
+  .prototype-switcher { left: 82px; right: 12px; width: auto; grid-template-columns: 1fr auto; }
   .prototype-switcher > div:first-child { display: none; }
   .upgrade-rationale { grid-template-columns: 1fr; }
   .rationale-grid { grid-template-columns: 1fr; }
